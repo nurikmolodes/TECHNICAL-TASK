@@ -42,7 +42,7 @@ const Home = () => {
           <li>Контакты</li>
         </ul>
         <div className="burger" onClick={() => setOpen(!open)}>
-          <Hamburger  color="grey" size={30} />
+          <Hamburger color="grey" size={30} />
         </div>
         {open && (
           <div className="modal">
