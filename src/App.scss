@@ -326,9 +326,13 @@
       align-items: center;
       width: 418px;
       height: 392px;
+
       @media (max-width: 1240px) {
         align-items: center;
         width: auto;
+      }
+      @media(max-width: 650px) {
+        margin-right: 20px;
       }
       .order {
         font-style: normal;
