@@ -1117,16 +1117,15 @@
   }
 }
 
-
 .modal {
   right: 0;
   position: fixed;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   list-style: none;
-  height: 500px;
   z-index: 2;
   text-align: left;
   background-color: bisque;
