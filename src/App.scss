@@ -4,7 +4,6 @@
 }
 .wrapper {
   max-width: 1440px;
-  // background-color: bisque;
   margin: auto;
   min-width: 350px;
 
@@ -14,7 +13,10 @@
     min-width: 350px;
     display: flex;
     gap: 413px;
-
+    // background-color: #e8e4e4;
+    .burger {
+      z-index: 100;
+    }
     @media (max-width: 1328px) {
       gap: 200px;
     }
@@ -1113,4 +1115,22 @@
       margin-left: 0;
     }
   }
+}
+
+
+.modal {
+  right: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  height: 500px;
+  z-index: 2;
+  text-align: left;
+  background-color: bisque;
+  margin-right: 0 !important;
+  align-items: center;
+  text-align: center;
 }

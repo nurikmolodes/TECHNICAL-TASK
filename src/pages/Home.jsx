@@ -1,5 +1,5 @@
 import Hamburger from "hamburger-react";
-import React from "react";
+import React, { useState } from "react";
 import call from "../assets/call.svg";
 import email from "../assets/email.svg";
 import burger from "../assets/burger.svg";
@@ -21,6 +21,13 @@ import emblema from "../assets/emblema.svg";
 import redLine from "../assets/redLine.svg";
 
 const Home = () => {
+  const [cart, setCart] = useState(data);
+  const handleRemove = (id) => {
+    const arr = cart.filter((item) => item.name !== id);
+    setCart(arr);
+  };
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="wrapper">
       {/* NAVBAR  */}
@@ -34,9 +41,20 @@ const Home = () => {
           <li>О компании</li>
           <li>Контакты</li>
         </ul>
-        <div className="burger">
-          <Hamburger color="grey" size={30} />
+        <div className="burger" onClick={() => setOpen(!open)}>
+          <Hamburger  color="grey" size={30} />
         </div>
+        {open && (
+          <div className="modal">
+            <a>Каталог</a>
+            <a>Акции</a>
+            <a>Популярные товары</a>
+            <a>Новинки</a>
+            <a>Новости</a>
+            <a>О компании</a>
+            <a>Контакты</a>
+          </div>
+        )}
         <div>
           <img src={email} alt="" />
           <img src={call} alt="" />
@@ -94,7 +112,7 @@ const Home = () => {
           </div>
           <div className="line"></div>
           <div className="goods">
-            {data.map((item, index) => (
+            {cart.map((item, index) => (
               <div>
                 <div className="good">
                   <img src={item.img} alt="" />
@@ -106,7 +124,12 @@ const Home = () => {
                     <p>+</p>
                   </div>
                   <h2>{item.price} с</h2>
-                  <img src={deleted} alt="" />
+                  <img
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleRemove(item.name)}
+                    src={deleted}
+                    alt=""
+                  />
                 </div>
                 <div className="linee"></div>
               </div>
