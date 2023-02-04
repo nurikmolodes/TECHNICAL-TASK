@@ -106,7 +106,6 @@ const Home = () => {
           </div>
         </div>
 
-
         <div className="right">
           <h2 className="order">Стоимость заказа</h2>
           <div className="first">
@@ -124,10 +123,50 @@ const Home = () => {
           </div>
           <button>Потвердить заказ</button>
           <p>
-            Подтверждая заказ, я принимаю условия <span>пользовательского соглашения</span>
+            Подтверждая заказ, я принимаю условия{" "}
+            <span>пользовательского соглашения</span>
           </p>
         </div>
       </div>
+
+      {/* BIG TEXT */}
+      <div className="bigText">
+        <h1>Оформление заказа</h1>
+      </div>
+
+      {/* FORM  */}
+      <form>
+        <div className="levoe">
+          <div className="first">
+            <p>Имя</p>
+            <p>Татьяна</p>
+          </div>
+          <div className="second">
+            <div className="one">
+              <p>Телефон</p>
+              <p>+996 555 50 50 50</p>
+            </div>
+            <div className="two">
+              <p>Доб.</p>
+              <p>0</p>
+            </div>
+          </div>
+          <div className="third">
+            <p>Доп телефон или whatsapp</p>
+            <p>+996 555 50 50 50</p>
+          </div>
+        </div>
+        <div className="pravoe">
+          <div className="first">
+            <p>Фамилия</p>
+            <p>Смолянинова</p>
+          </div>
+          <div className="second">
+            <p>E-mail</p>
+            <p>Tatyana@gmail.com</p>
+          </div>
+        </div>
+      </form>
     </div>
   );
 };

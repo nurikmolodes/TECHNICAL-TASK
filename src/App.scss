@@ -169,6 +169,8 @@
     display: flex;
     margin-left: 90px;
     gap: 30px;
+    max-width: 1440px;
+    min-width: 350px;
 
     @media (max-width: 1240px) {
       flex-direction: column;
@@ -341,7 +343,7 @@
       .first {
         display: flex;
         gap: 245px;
-        @media(max-width: 498px) {
+        @media (max-width: 498px) {
           gap: 230px;
         }
         h3 {
@@ -367,7 +369,7 @@
       .second {
         display: flex;
         gap: 217px;
-        @media(max-width: 498px) {
+        @media (max-width: 498px) {
           gap: 200px;
         }
         h3 {
@@ -403,7 +405,7 @@
         gap: 254px;
         margin-bottom: 10px;
 
-        @media(max-width: 498px) {
+        @media (max-width: 498px) {
           gap: 240px;
         }
         h3 {
@@ -437,7 +439,7 @@
         color: #ffffff;
         border: none;
 
-        @media(max-width: 390px) {
+        @media (max-width: 390px) {
           width: 330px;
         }
       }
@@ -453,6 +455,242 @@
         margin-top: 30px;
         span {
           color: rgba(101, 159, 246, 1);
+        }
+      }
+    }
+  }
+  .bigText {
+    max-width: 1440px;
+    min-width: 350px;
+    margin-top: 60px;
+    text-align: center;
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 100%;
+      display: flex;
+      align-items: center;
+      color: #333333;
+      margin-left: 20px;
+
+      @media (max-width: 822px) {
+        margin-left: 0;
+        display: block;
+      }
+    }
+  }
+  // FORM
+  form {
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;
+    margin-top: 30px;
+
+    @media (max-width: 822px) {
+      flex-direction: column;
+      align-items: center;
+      margin-left: 0;
+    }
+
+    .levoe {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      .first {
+        width: 375px;
+        height: 60px;
+        background: #f6f6fc;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 385px) {
+          width: 300px;
+        }
+        :nth-child(1) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 100%;
+          color: #333333;
+          opacity: 0.5;
+          margin-left: 30px;
+        }
+        :nth-child(2) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 100%;
+          color: #333333;
+          margin-left: 30px;
+          margin-top: -10px;
+        }
+      }
+      .second {
+        display: flex;
+        gap: 15px;
+        .one {
+          width: 289px;
+          height: 60px;
+          background: #f6f6fc;
+          border-radius: 5px;
+          @media (max-width: 385px) {
+            width: 210px;
+          }
+          :nth-child(1) {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 100%;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            opacity: 0.5;
+            margin-left: 30px;
+          }
+          :nth-child(2) {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 100%;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            margin-left: 30px;
+            margin-top: -10px;
+          }
+        }
+        .two {
+          width: 71px;
+          height: 60px;
+          background: #f6f6fc;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          :nth-child(1) {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 100%;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            opacity: 0.5;
+            margin-left: 22px;
+          }
+          :nth-child(2) {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 100%;
+            display: flex;
+            align-items: center;
+            color: #333333;
+            margin-left: 22px;
+            margin-top: -10px;
+          }
+        }
+      }
+      .third {
+        width: 375px;
+        height: 60px;
+        background: #f6f6fc;
+        border-radius: 5px;
+        @media (max-width: 385px) {
+          width: 300px;
+        }
+        :nth-child(1) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          color: #333333;
+          opacity: 0.5;
+          margin-left: 30px;
+        }
+        :nth-child(2) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          color: #333333;
+          margin-left: 30px;
+          margin-top: -10px;
+        }
+      }
+    }
+    .pravoe {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      .first {
+        height: 60px;
+        width: 375px;
+        background: #f6f6fc;
+        border-radius: 5px;
+        @media (max-width: 385px) {
+          width: 300px;
+        }
+        :nth-child(1) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          color: #333333;
+          opacity: 0.5;
+          margin-left: 30px;
+          position: relative;
+        }
+        :nth-child(2) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          color: #333333;
+          margin-left: 30px;
+          margin-top: -10px;
+        }
+      }
+      .second {
+        height: 60px;
+        width: 375px;
+        background: #f6f6fc;
+        border-radius: 5px;
+        @media (max-width: 385px) {
+          width: 300px;
+        }
+        :nth-child(1) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          color: #333333;
+          opacity: 0.5;
+          margin-left: 30px;
+          position: relative;
+        }
+        :nth-child(2) {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 100%;
+          display: flex;
+          align-items: center;
+          color: #333333;
+          margin-left: 30px;
+          margin-top: -10px;
         }
       }
     }
