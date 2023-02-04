@@ -11,6 +11,14 @@ import search from "../assets/search.svg";
 import vector from "../assets/vector.svg";
 import { data } from "../assets/data";
 import deleted from "../assets/delete.svg";
+import number from "../assets/number.svg";
+import num from "../assets/num.svg";
+import instagram from "../assets/instagram.svg";
+import facebook from "../assets/facebook.svg";
+import whatsapp from "../assets/whatsapp.svg";
+import logo from "../assets/logo.svg";
+import emblema from "../assets/emblema.svg";
+import redLine from "../assets/redLine.svg";
 
 const Home = () => {
   return (
@@ -167,6 +175,154 @@ const Home = () => {
           </div>
         </div>
       </form>
+
+      {/* CHECKBOX  */}
+      <div className="checkbox">
+        <h3>Я</h3>
+        <div>
+          <input type="checkbox" className="check" />
+          <p>Физическое лицо</p>
+        </div>
+        <div>
+          <input type="checkbox" className="check" />
+          <p>Юридическое лицо</p>
+        </div>
+      </div>
+
+      {/* DOSTAVKA  */}
+      <div className="dostavka">
+        <h2>Доставка</h2>
+        <div className="way-dostavka">
+          <h2>Способ доставки</h2>
+          <div>
+            <input type="checkbox" className="check" />
+            <p>
+              Самовызов <span>режим работы магазина {">"}</span>
+            </p>
+          </div>
+          <div>
+            <input type="checkbox" className="check" />
+            <p>
+              Курьерская доставка <span>условия доставки {">"}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ADDRESS  */}
+      <div className="address">
+        <h4>Адрес доставки</h4>
+        <div className="shipping">
+          <div>
+            <h3>Страна</h3>
+            <h2>Кыргызстан</h2>
+          </div>
+          <div>
+            <h3>Улица</h3>
+            <h2>Чуй 345</h2>
+          </div>
+          <div>
+            <h3>Дом</h3>
+            <h2>1</h2>
+          </div>
+          <div>
+            <h3>Город</h3>
+            <h2>Бишкек</h2>
+          </div>
+          <div>
+            <h3>Квартира</h3>
+            <h2>53</h2>
+          </div>
+        </div>
+      </div>
+
+      {/* COMMENT  */}
+      <div className="comment">
+        <p>Указать домофон, этаж, подъезд и комментарий к адресу</p>
+        <input type="text" placeholder="Комментарий" />
+      </div>
+
+      {/* FOOTER  */}
+      <footer>
+        <div className="top">
+          <img src={emblema} alt="" />
+          <img src={redLine} alt="" />
+        </div>
+        <div className="bottom">
+          <div>
+            <a className="bold">Меню</a>
+            <a>Каталог</a>
+            <a>Акции</a>
+            <a>Популярные товары</a>
+            <a>Новинки</a>
+            <a>Новости</a>
+            <a>О компании</a>
+            <a>Контакты</a>
+            <div className="gray">
+              <img src={grey} alt="" />
+              <img src={burger} alt="" />
+            </div>
+          </div>
+          <div>
+            <a className="bold">Категории</a>
+            <a>Бумага</a>
+            <a>Письмо и графика</a>
+            <a>Канц товары</a>
+            <a>Художественные товары</a>
+            <a>Творчество</a>
+            <a>Полиграфические материалы</a>
+            <a>Распродажи</a>
+            <a>Офисное оборудование</a>
+            <a>Игры и игрушки</a>
+            <a>Сувенирная продукция</a>
+          </div>
+          <div>
+            <a className="bold">Контакты</a>
+            <a className="boldd">Огонбаева, 222</a>
+            <a>
+              <img src={number} alt="" />
+            </a>
+            <a>
+              <img src={num} alt="" />
+            </a>
+            <a className="boldd">Эркиндик, 7</a>
+            <a>
+              <img src={number} alt="" />
+            </a>
+            <a>
+              <img src={num} alt="" />
+            </a>
+            <a className="boldd">Уметалиева, 84</a>
+            <a>
+              <img src={number} alt="" />
+            </a>
+            <a>
+              <img src={num} alt="" />
+            </a>
+          </div>
+          <div>
+            <a className="bold">Мы в соц сетях</a>
+            <a className="bold">
+              <img src={instagram} alt="" />
+            </a>
+            <a className="bold">
+              <img src={facebook} alt="" />
+            </a>
+            <a className="bold">
+              <img src={whatsapp} alt="" />
+            </a>
+            <a style={{ marginTop: "110px" }} className="bold">
+              <img src={logo} alt="" />
+            </a>
+          </div>
+        </div>
+        <hr className="theVeryBottom" />
+        <div className="center">
+          <h5 className="theVeryBottomText">
+            Kanzler & Burger (c) 2017. All rights reserved
+          </h5>
+        </div>
+      </footer>
     </div>
   );
 };
