@@ -4,7 +4,7 @@ import call from "../assets/call.svg";
 import email from "../assets/email.svg";
 import burger from "../assets/burger.svg";
 import catalog from "../assets/catalog.svg";
-import cart from "../assets/cart.svg";
+import cartt from "../assets/cart.svg";
 import user from "../assets/user.svg";
 import grey from "../assets/grey.svg";
 import search from "../assets/search.svg";
@@ -27,6 +27,54 @@ const Home = () => {
     setCart(arr);
   };
   const [open, setOpen] = useState(false);
+
+  // SEARCH
+  const [searchh, setSearch] = useState("");
+
+  const filteredCart = cart.filter((item) => {
+    return searchh?.toLowerCase() === ""
+      ? item
+      : item?.name?.toLowerCase().includes(searchh?.toLowerCase()) ||
+          item?.articul?.toLowerCase().includes(searchh?.toLowerCase());
+  });
+
+  const totalPrice = cart.reduce(
+    (price, item) => price + item.amount * item.price,
+    0
+  );
+
+  const AddToCart = (product) => {
+    const ProductExist = cart.find((item) => item.id === product.id);
+    if (ProductExist) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...ProductExist, amount: ProductExist.amount + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, amount: 1 }]);
+    }
+  };
+
+  const RemoveFromCart = (product) => {
+    const ProductExist = cart.find((item) => item.id === product.id);
+    if (ProductExist.amount === 1) {
+      setCart(cart.filter((item) => item.id === product.id));
+    } else {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...ProductExist, quantity: ProductExist.amount - 1 }
+            : item
+        )
+      );
+    }
+  };
+
+  const [opened, setOpened] = useState(true);
+  let down = opened ? "cartImage" : 'reverse';
 
   return (
     <div className="wrapper">
@@ -72,10 +120,17 @@ const Home = () => {
         </div>
         <div className="search">
           <img src={search} alt="" />
-          <input type="text" placeholder="Найти товар" />
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            type="text"
+            placeholder="Найти товар"
+          />
         </div>
-        <div className="cart">
-          <img src={cart} alt="" />
+        <div className="cart" style={{ position: "relative" }}>
+          <div className="round">
+            <h2>{cart.length}</h2>
+          </div>
+          <img src={cartt} alt="" />
           <img src={user} alt="" />
         </div>
       </header>
@@ -97,7 +152,12 @@ const Home = () => {
         <div className="left">
           <div className="korzina">
             <h2>Корзина({data.length})</h2>
-            <img src={vector} alt="" />
+            <img
+              className={down}
+              onClick={() => setOpened(!opened)}
+              src={vector}
+              alt=""
+            />
           </div>
           <div className="list">
             <ul>
@@ -111,37 +171,39 @@ const Home = () => {
             </ul>
           </div>
           <div className="line"></div>
-          <div className="goods">
-            {cart.map((item, index) => (
-              <div>
-                <div className="good">
-                  <img src={item.img} alt="" />
-                  <h3>{item.name}</h3>
-                  <p>{item.articul}</p>
-                  <div className="buttons">
-                    <p>-</p>
-                    <p>{item.amount}</p>
-                    <p>+</p>
+          {opened && (
+            <div className="goods">
+              {filteredCart.map((item, index) => (
+                <div>
+                  <div className="good">
+                    <img src={item.img} alt="" />
+                    <h3>{item.name}</h3>
+                    <p>{item.articul}</p>
+                    <div className="buttons">
+                      <p onClick={() => RemoveFromCart(item)}>-</p>
+                      <p>{item.amount}</p>
+                      <p onClick={() => AddToCart(item)}>+</p>
+                    </div>
+                    <h2>{Number(item.price * item.amount)} с</h2>
+                    <img
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleRemove(item.name)}
+                      src={deleted}
+                      alt=""
+                    />
                   </div>
-                  <h2>{item.price} с</h2>
-                  <img
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleRemove(item.name)}
-                    src={deleted}
-                    alt=""
-                  />
+                  <div className="linee"></div>
                 </div>
-                <div className="linee"></div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="right">
           <h2 className="order">Стоимость заказа</h2>
           <div className="first">
             <h3>Товары({data.length})</h3>
-            <h2>1200с</h2>
+            <h2>{totalPrice}c</h2>
           </div>
           <div className="second">
             <h3>Доставка</h3>
@@ -150,7 +212,7 @@ const Home = () => {
           <div className="liner"></div>
           <div className="third">
             <h3>Итого</h3>
-            <h2>1200с</h2>
+            <h2>{totalPrice}c</h2>
           </div>
           <button>Потвердить заказ</button>
           <p>
@@ -168,34 +230,46 @@ const Home = () => {
       {/* FORM  */}
       <form>
         <div className="levoe">
-          <div className="first">
-            <p>Имя</p>
-            <p>Татьяна</p>
-          </div>
+          <input
+            className="first"
+            type="text"
+            placeholder="Имя"
+            style={{ border: "none" }}
+          />
           <div className="second">
-            <div className="one">
-              <p>Телефон</p>
-              <p>+996 555 50 50 50</p>
-            </div>
-            <div className="two">
-              <p>Доб.</p>
-              <p>0</p>
-            </div>
+            <input
+              className="one"
+              type="text"
+              placeholder="Телефон"
+              style={{ border: "none" }}
+            />
+            <input
+              className="two"
+              type="text"
+              placeholder="Доб."
+              style={{ border: "none" }}
+            />
           </div>
-          <div className="third">
-            <p>Доп телефон или whatsapp</p>
-            <p>+996 555 50 50 50</p>
-          </div>
+          <input
+            className="third"
+            type="text"
+            placeholder="Доп телефон или whatsapp"
+            style={{ border: "none" }}
+          />
         </div>
         <div className="pravoe">
-          <div className="first">
-            <p>Фамилия</p>
-            <p>Смолянинова</p>
-          </div>
-          <div className="second">
-            <p>E-mail</p>
-            <p>Tatyana@gmail.com</p>
-          </div>
+          <input
+            className="first"
+            type="text"
+            placeholder="Фамилия"
+            style={{ border: "none" }}
+          />
+          <input
+            className="second"
+            type="text"
+            placeholder="E-mail"
+            style={{ border: "none" }}
+          />
         </div>
       </form>
 
@@ -236,26 +310,15 @@ const Home = () => {
       <div className="address">
         <h4>Адрес доставки</h4>
         <div className="shipping">
-          <div>
-            <h3>Страна</h3>
-            <h2>Кыргызстан</h2>
-          </div>
-          <div>
-            <h3>Улица</h3>
-            <h2>Чуй 345</h2>
-          </div>
-          <div>
-            <h3>Дом</h3>
-            <h2>1</h2>
-          </div>
-          <div>
-            <h3>Город</h3>
-            <h2>Бишкек</h2>
-          </div>
-          <div>
-            <h3>Квартира</h3>
-            <h2>53</h2>
-          </div>
+          <input type="text" placeholder="Страна" style={{ border: "none" }} />
+          <input type="text" placeholder="Улица" style={{ border: "none" }} />
+          <input type="text" placeholder="Дом" style={{ border: "none" }} />
+          <input type="text" placeholder="Город" style={{ border: "none" }} />
+          <input
+            type="text"
+            placeholder="Квартира"
+            style={{ border: "none" }}
+          />
         </div>
       </div>
 
